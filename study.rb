@@ -104,3 +104,63 @@ when 25..64
 else
     puts "Senior"
 end
+
+# Arrays
+
+arr = [5, "Dave", 15.88, false]
+arr << 8  # (<<) -->  arr.push(8)
+puts arr
+#--------
+arr = [5, "Dave", 15.88, false]
+arr.insert(2, 8)
+puts arr
+#--------
+arr = [1, 2, 3]
+arr.pop
+print arr  # [1, 2]
+#--------
+arr = [2, 4, 6, 8]
+arr.delete_at(2)
+print arr  # [2, 4, 8]
+
+#--------  Array Ranges
+nums = [6, 3, 8, 7, 9]
+print nums[1..3]  # [3, 8, 7]  -- can also print nums[1...3]
+
+#--------  Array Manipulations
+a = [1, 2, 3, 4, 5]
+b = [2, 4, 5, 6]
+res = a - b
+print res  # [1, 3]  
+# [1, 2, 3] * 3 results in [1, 2, 3, 1, 2, 3, 1, 2, 3]
+#--------
+a = [2, 3, 7, 8]
+b = [2, 7, 9]
+print a & b  # [2, 7]
+#--------
+a = [2, 3, 7, 8]
+b = [2, 7, 9]
+print a | b   # [2, 3, 7, 8, 9]
+#--------
+arr = [5, 3, 8]
+res = arr.reverse
+print res
+#--------
+arr = [5, 3, 8]
+res = arr.reverse!
+print res   
+=begin If you use the reverse method without (!) and don’t save it to a new variable, 
+it will just reverse it once and keep the original value.
+=end
+#--------
+=begin
+array.length or array.size returns the number of elements in array.
+array.sort returns a new array with the elements sorted
+array.uniq returns a new array with duplicate values removed from array.
+array.uniq! removes duplicates in place.
+array.freeze safeguards the array, preventing it from being modified.
+array.include?(obj) returns true if obj is present in array, false otherwise.
+array.min returns the element with the minimum value.
+array.max returns the element with the maximum value.
+=end
+
