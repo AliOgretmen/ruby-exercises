@@ -164,3 +164,30 @@ array.min returns the element with the minimum value.
 array.max returns the element with the maximum value.
 =end
 
+#Hashes (associative arrays, maps, or dictionaries)
+
+ages = { "David" => 28, "Amy"=> 19, "Rob" => 42 }
+puts ages["Rob"]  # 42
+#can also {[1,"jan"] => "January"}
+#--------
+car = {brand:"BMW", year:2016, color: "red", length:205}
+car.delete(:length)
+puts car.values  # BMV 2016 red
+#--------
+cars = {
+    bmw: { year:2016, color:"red"},
+    mercedes: { year:2012, color:"black"},
+    porsche: { year:2014, color:"white"}
+}
+puts cars[:bmw][:color] #red
+
+# There are useful methods available for manipulating hashes:
+# hash.delete(key) removes the key-value pair from hash by key.
+# hash.key(value) returns the key for the given value in hash, nil if no matching value is found.
+# hash.invert creates a new hash, reversing keys and values from hash; that is, in the new hash, the keys from hash become values and values become keys.
+# hash.keys returns a new array with keys from hash.
+# hash.values returns a new array containing all the values of hash.
+# hash.length returns the length of hash as an integer.
+
+# Iterators
+
