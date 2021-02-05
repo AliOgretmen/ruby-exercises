@@ -2,15 +2,12 @@
 self study with Ruby
 =end
  
-
 # Comparison Operators
-
 myVar = 'new'
 compareVar = 'new'
 puts myVar.eql?(compareVar)
 
 # if Statements
-
 num = 8
 if num == 3
     puts "Number is 3"
@@ -30,7 +27,6 @@ else
 end
 
 # case Statements
-
 a = 2
 case a
 when 1
@@ -52,7 +48,6 @@ else
 end
 
 # Loops
-
 x = 0
 while x < 10
     puts x
@@ -82,9 +77,8 @@ loop do
     break if x > 10
 end
 
- #Ranges (The to_a method is used to convert a range to an array)
-
- a = (1..7).to_a  # ..
+#Ranges (The to_a method is used to convert a range to an array)
+a = (1..7).to_a  # ..
 puts a
 puts '-----'
 b = (79...82).to_a # .. not execute high value
@@ -106,7 +100,6 @@ else
 end
 
 # Arrays
-
 arr = [5, "Dave", 15.88, false]
 arr << 8  # (<<) -->  arr.push(8)
 puts arr
@@ -122,11 +115,9 @@ print arr  # [1, 2]
 arr = [2, 4, 6, 8]
 arr.delete_at(2)
 print arr  # [2, 4, 8]
-
 #--------  Array Ranges
 nums = [6, 3, 8, 7, 9]
 print nums[1..3]  # [3, 8, 7]  -- can also print nums[1...3]
-
 #--------  Array Manipulations
 a = [1, 2, 3, 4, 5]
 b = [2, 4, 5, 6]
@@ -165,7 +156,6 @@ array.max returns the element with the maximum value.
 =end
 
 #Hashes (associative arrays, maps, or dictionaries)
-
 ages = { "David" => 28, "Amy"=> 19, "Rob" => 42 }
 puts ages["Rob"]  # 42
 #can also {[1,"jan"] => "January"}
@@ -180,7 +170,6 @@ cars = {
     porsche: { year:2014, color:"white"}
 }
 puts cars[:bmw][:color] #red
-
 # There are useful methods available for manipulating hashes:
 # hash.delete(key) removes the key-value pair from hash by key.
 # hash.key(value) returns the key for the given value in hash, nil if no matching value is found.
@@ -188,6 +177,30 @@ puts cars[:bmw][:color] #red
 # hash.keys returns a new array with keys from hash.
 # hash.values returns a new array containing all the values of hash.
 # hash.length returns the length of hash as an integer.
+#-------------------
 
 # Iterators
-
+arr = [2, 4, 6]
+arr.each do |x|
+    puts x
+end
+#--------
+arr = [2, 4, 6]
+sum = 0
+arr.each do |x|
+    sum += x
+end
+puts sum
+#--------
+sizes = {svga:800, hd:1366, uhd:3840}
+sizes.each do |key, value|
+    puts "#{key}=>#{value}"
+end  # svga=>800 hd=>1366 uhd=>3840
+#or same uses
+sizes = {svga:800, hd:1366, uhd:3840}
+sizes.each {|key, value| puts "#{key}=>#{value}"} # svga=>800 hd=>1366 uhd=>3840
+#--------
+10.times do
+    puts "Hi"
+end
+#--------
