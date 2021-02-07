@@ -204,3 +204,43 @@ sizes.each {|key, value| puts "#{key}=>#{value}"} # svga=>800 hd=>1366 uhd=>3840
     puts "Hi"
 end
 #--------
+#Letter Frequency Counter
+text = "I am learning Ruby and it is fun!"
+text.downcase!
+freqs = {}
+freqs.default = 0
+text.each_char { |char| freqs[char] += 1}
+("a".."z").each {|x| puts "#{x} : #{freqs[x]}" }  # a : 3   b : 1   c : 0
+
+
+# Defining & Calling Methods
+def say
+    puts "Hi"
+end
+say  # Hi
+say  # Hi
+say  # Hi
+#--------
+def someMethod(*p) #optional parameters
+    puts p
+end
+someMethod(25, "hello", true)
+#--------
+def sum(a, b)
+    res = a+b
+    return res
+end
+x = sum(5, 23)
+puts x  #28
+#-------
+def squares(a, b, c)
+    return a*a, b*b, c*c
+end
+arr = squares(2, 3, 6)
+puts arr
+#-------
+def demo(a, b)
+    a = b-2
+    b = a-3
+end
+puts demo(5, 6)
