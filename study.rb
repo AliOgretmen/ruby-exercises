@@ -244,3 +244,33 @@ def demo(a, b)
     b = a-3
 end
 puts demo(5, 6)
+#-------
+def square(x)
+    x*x
+end
+square(4).times {puts "Hi"}
+#-------
+def add(a, b)
+    a+b
+end
+def mult(a, b)
+    a*b
+end
+x = mult(add(2, 3), add(4, 7))
+puts x
+#Global Scope
+$x = 42
+def change
+    $x = 8
+end
+change
+puts $x
+#Recursion
+def fact(n)
+    if n<= 1
+        1
+    else
+        n * fact( n - 1 )
+    end
+end
+puts fact(5)  #120
