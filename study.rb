@@ -274,3 +274,34 @@ def fact(n)
     end
 end
 puts fact(5)  #120
+
+#Classes
+
+class Person
+    def initialize
+      puts "Hi there"
+    end
+end
+#-------
+class Person
+    def initialize
+        puts "Hi there"
+    end
+end
+p1 = Person.new
+p2 = Person.new  
+#Instance Variables
+class Person
+    def initialize(name)
+      @name = name
+    end
+end
+#--------
+class Animal
+    @age = 0
+    def initialize(name, age)
+      @name = name
+      @age = age
+    end
+end
+ob = Animal.new("Jacky", 3)
