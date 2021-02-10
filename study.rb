@@ -305,3 +305,45 @@ class Animal
     end
 end
 ob = Animal.new("Jacky", 3)
+#Accessors
+class Person
+    def initialize(name)
+        @name = name
+    end
+    def get_name
+        @name
+    end
+end
+p = Person.new("David")
+puts p.get_name
+#Setter Method
+class Person
+    def initialize(name)
+        @name = name
+    end
+    def get_name
+        @name
+    end
+    def set_name=(name)
+        @name = name
+    end
+end
+p = Person.new("David")
+p.set_name = "Bob"
+puts p.get_name
+#--------
+class Person
+    def initialize(name)
+        @name = name
+    end
+    def name
+        @name
+    end
+    def name=(name)
+        @name = name
+    end
+end
+
+p = Person.new("David")
+p.name = "Bob"
+puts p.name
