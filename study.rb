@@ -364,3 +364,41 @@ end
 p = Person.new("David", 28)
 p.change("Bob", 42)
 p.show_info
+#---------
+class Person
+    def self.info
+        puts "A Person"
+    end
+end
+Person.info  # A Person
+#----------
+class Person
+    @@count = 0
+    def initialize
+        @@count += 1
+    end
+    def self.get_count
+        @@count
+    end
+end
+p1 = Person.new
+p2 = Person.new
+puts Person.get_count  # 2
+# Class constant
+class Calc
+    PI = 3.14
+end
+puts Calc::PI
+# The to_s Method
+class Person
+    def initialize(n, a)
+      @name = n
+      @age = a
+    end
+    def to_s
+        "#{@name} is #{@age} years old."
+    end
+end
+p = Person.new("David", 28)
+puts p  #David is 28 years old.
+#he to_s method also gets called when the object is used as a value in a string, like "#{p}"
