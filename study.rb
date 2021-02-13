@@ -402,3 +402,74 @@ end
 p = Person.new("David", 28)
 puts p  #David is 28 years old.
 #he to_s method also gets called when the object is used as a value in a string, like "#{p}"
+
+#Inheritance
+class Animal
+    def initialize(name, color)
+      @name = name
+      @color = color
+    end
+    def speak
+      puts "Hi"
+    end
+  end
+  
+  class Dog < Animal
+end
+#-----------
+class Animal
+    def initialize(name, color)
+        @name = name
+        @color = color
+    end
+    def speak
+        puts "Hi"
+    end
+end
+
+class Dog < Animal
+end
+class Cat < Animal
+    attr_accessor :age
+    def speak
+        puts "Meow"
+    end
+end
+
+c = Cat.new("Lucy", "white")
+c.age = 2
+c.speak  # Meow
+
+#super
+class Animal
+    def speak
+        puts "Hi"
+    end
+end
+
+class Cat < Animal
+    def speak
+        super
+        puts "Meow"
+    end
+end
+c = Cat.new
+c.speak
+#-----------
+class Animal
+    def initialize(name)
+        @name = name
+    end
+end
+
+class Cat  < Animal
+    def initialize(name, age)
+        super(name)
+        @age = age
+    end
+    def to_s
+        "#{@name} is #{@age} years old."
+    end
+end
+c = Cat.new("Bob", 3)
+puts c
