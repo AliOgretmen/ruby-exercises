@@ -582,3 +582,38 @@ end
 c1 = Cat.new("Bob", 3)
 c2 = Cat.new("Lucy", 7)
 puts c1 < c2  #true
+
+# Namespacing
+# It becomes easy for us to recognize related classes in our code. We can have the same class names across different modules.
+module Mammal
+    class Dog
+        def speak
+            puts "Woof!"
+        end
+    end
+
+    class Cat
+        def speak
+            puts "Meow"
+        end
+    end
+end
+
+a = Mammal::Dog.new
+b = Mammal::Cat.new
+a.speak
+b.speak
+#-------------
+module MyMath
+    PI = 3.14
+    def self.square(x)
+        x*x
+    end
+    def self.negate(x)
+        -x
+    end
+    def self.factorial(x)
+         (1..x).inject(:*) || 1
+    end
+end
+puts MyMath.factorial(8)
