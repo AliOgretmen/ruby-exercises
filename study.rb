@@ -617,3 +617,49 @@ module MyMath
     end
 end
 puts MyMath.factorial(8)
+
+# Structs  
+# Structs is a built-in Ruby class and makes it shorter to define simple classes, accessors, and their initialize methods.
+
+Point = Struct.new(:x, :y)
+origin = Point.new(0,0)
+dest = Point.new(15, 42)
+puts dest.y  # 42
+
+# Ostruct
+require "ostruct"
+
+person = OpenStruct.new  # or can also OpenStruct.new(name: "John", age:42, salary:250)
+person.name = "John"
+person.age = 42
+person.salary = 250
+puts person.name  # John
+
+# Stadart Classes
+#square root
+puts Math.sqrt(9)
+
+#pi constant
+puts Math::PI
+
+#trigonometry (sin, cos, tan)
+puts Math::cos(0)
+
+#current time
+t = Time.now
+puts t.inspect
+
+#year, month, day
+puts t.year
+puts t.month
+puts t.day
+
+#custom date
+t = Time.new(1988, 6, 10)
+
+#day of week: 0 is Sunday
+puts t.wday
+
+#day of year
+puts t.yday
+
