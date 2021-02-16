@@ -663,3 +663,41 @@ puts t.wday
 #day of year
 puts t.yday
 
+# Procs
+greet = Proc.new do |x|
+    puts "Welcome #{x}"
+end
+
+greet.call "David" # Welcome David  (run the code in the proc using the call method.)
+greet.call "Amy"   # Welcome Amy
+#--------------
+greet = Proc.new do |x|
+    puts "Welcome #{x}"
+end
+
+goodbye = Proc.new do |x|
+    puts "Goodbye #{x}"
+end
+
+def say(arr, proc)
+    arr.each { |x| proc.call x}
+end
+    people = ["David", "Amy", "John"]
+say(people, greet)
+say(people, goodbye)
+
+# Lambdas
+
+talk = lambda {puts "Hi"}   # talk =  ->() {puts "Hi"}
+talk.call # Hi
+#-------------
+# (Lambdas check the number of arguments, while procs do not.)
+talk = lambda { |x| puts "Hello #{x}" }
+talk_proc = Proc.new { |x| puts "Hello #{x}" }
+
+talk_proc.call  # Hello
+talk.call       # error
+=begin
+When a lambda encounters a return statement it returns execution to the enclosing method.
+However, when a Proc encounters a return statement it jumps out of itself, as well as the enclosing method.
+=end
