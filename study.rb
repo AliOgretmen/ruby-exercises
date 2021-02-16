@@ -526,3 +526,59 @@ end
 p1 = Product.new("PC", 5)
 p2 = Product.new("Laptop", 3)
 puts (p1 == p2) # false
+
+# Modules
+# A module is a collection of methods that can be used in other classes. 
+# Ruby does not allow a class to inherit from multiple classes.
+
+module Flayable
+    def fly 
+        puts "I'm flying"
+    end
+end
+#---------
+module Flyable
+    def fly
+      puts "I'm flying!"
+    end
+end
+  
+  class Vehicle
+  end
+  
+  class Car < Vehicle
+  end
+  
+  class Jet < Vehicle
+    include Flyable
+  end
+  
+  class Plane < Vehicle
+    include Flyable
+  end
+
+  ob = Plane.new
+  ob.fly   # I'm flying
+
+# Mixins
+# If it's an "is-a" relationship, choose class inheritance. If it's a "has-a" relationship, choose modules.
+ class Human
+    include Walkable
+    include Speakable
+    include Runnable
+  end 
+
+  class Cat
+    attr_accessor :name, :age
+    include Comparable
+    def initialize(n, a)
+        self.name = n
+        self.age = a
+    end
+    def <=>(other)            # <=>  to compare that all comparisons
+        self.age <=> other.age
+    end
+end
+c1 = Cat.new("Bob", 3)
+c2 = Cat.new("Lucy", 7)
+puts c1 < c2  #true
