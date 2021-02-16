@@ -701,3 +701,44 @@ talk.call       # error
 When a lambda encounters a return statement it returns execution to the enclosing method.
 However, when a Proc encounters a return statement it jumps out of itself, as well as the enclosing method.
 =end
+
+=begin 
+File Modes
+Ruby supports the following file modes:
+r read-only, starts at beginning of file (default mode).
+r+ read-write, starts at beginning of file.
+w write-only, truncates existing file to zero length or creates a new file for writing.
+w+ read-write, truncates existing file to zero length overwriting existing data or creates a new file for reading and writing.
+a write-only, appends to end of file if file exists, otherwise creates a new file for writing.
+a+ read-write, appends or reads from end of file if file exists, otherwise creates a new file for reading and writing. 
+=end
+
+file = File.new("test.txt", "w+")
+file = File.open("filename", "w+") 
+file.close
+#----------
+file = File.new("test.txt", "w+")
+file.puts("some text")
+file.close
+#----------
+File.open("file.txt", "w+") {
+  |file| file.puts("some text") 
+}
+#----------
+f = File.new("test.txt", "w+")
+f.puts("a line of text")
+f.puts("another line of text")
+f.close
+puts File.read("test.txt")   # a line of text   # another line of text
+#-----------
+File.delete("test.txt")
+#-----------
+File.open("test.txt") if File.file?("text.txt")
+#-----------
+f = File.new("test.txt", "w+")
+f.puts("some content")
+f.close
+
+puts File.readable?("test.txt")
+puts File.writable?("test.txt")
+puts File.executable?("test.txt")
