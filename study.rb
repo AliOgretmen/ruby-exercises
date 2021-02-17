@@ -742,3 +742,22 @@ f.close
 puts File.readable?("test.txt")
 puts File.writable?("test.txt")
 puts File.executable?("test.txt")
+
+#Hash Methods
+#merge
+defaults    = { a: 1, b: 2, c: 3 }
+preferences = { c: 4 }
+defaults.merge!(preferences)
+# {:a=>1, :b=>2, :c=>4}
+
+#sort
+{ b: 1, a: 2 }.sort
+# [[:a, 2], [:b, 1]]
+
+#keys
+{ apple: 1, banana: 2 }.keys
+# [:apple, :banana]
+
+#values
+{ apple: 1, banana: 2 }.values
+# [1, 2]
