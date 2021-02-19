@@ -761,3 +761,19 @@ defaults.merge!(preferences)
 #values
 { apple: 1, banana: 2 }.values
 # [1, 2]
+
+#itself
+[1,2,3,nil].select(&:itself)
+
+
+#-----------
+class Salad
+    def initialize
+      @ingredients = []
+    end
+    def add_nuts
+      @ingredients << :nuts
+      self
+    end
+  end
+  my_salad = Salad.new.add_nuts  
